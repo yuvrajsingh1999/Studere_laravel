@@ -46,6 +46,8 @@ class MaterialsController extends Controller
                 $fileModel->semester =$sem;
                 $fileModel->class =$class[0];
                 $fileModel->session = $session[0];
+                $fileModel->subject = $coursecode;
+
                 
                 $fileModel->save();
     
@@ -66,7 +68,7 @@ class MaterialsController extends Controller
         $department = Department::where('id',$deptcode)->pluck('name');
         // dd($deptcode);
 
-        $materials = Material::where('class',$class)->where('department',$department[0])->where('semester',$sem)->get();
+        $materials = Material::where('class',$class)->where('department',$department[0])->where('semester',$sem)->where('subject',$courseid)->get();
 
         // dd($materials);
 
@@ -84,7 +86,7 @@ class MaterialsController extends Controller
 
 public function fileView($id){
  $data = Material::find($id);
- return view('viewproduct',compact('data'));
+ return view('student.viewproduct',compact('data'));
 }
     
 }

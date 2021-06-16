@@ -21,6 +21,9 @@ class ContactController extends Controller
         return view('faculty.contact');   
         }
       }
+      public function userCon(Request $request) {
+          return view('enquire');
+        }
     
       public function storeForm(Request $request) {
         $this->validate($request, [

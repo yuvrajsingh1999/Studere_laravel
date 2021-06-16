@@ -125,9 +125,13 @@
                    
                 </div>
             </div>
+
             <div class="col-xl-6">
                 <ul class="nav nav-footer justify-content-center justify-content-xl-end">
                     <li class="nav-item">
+                        <a href="/support-user" class="nav-link" target="_blank">Contact Us</a>
+                    </li>
+                     <li class="nav-item">
                         <a href="" class="nav-link" target="_blank">Studere System</a>
                     </li>
                     <li class="nav-item">

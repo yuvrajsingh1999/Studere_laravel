@@ -77,6 +77,9 @@
                             <a href="/showatten"><span class="fas fa-clipboard-list mr-3"></span> Attendence</a>
                           </li>
                           <li>
+                            <a href="/stunoticeboard"><span class="fas fa-clipboard-list mr-3"></span> Notice Board</a>
+                          </li>
+                          <li>
                             <a href="/support"><span class="fa fa-support mr-3"></span> Support</a>
                           </li>
                           <li>
@@ -132,7 +135,6 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -140,7 +142,6 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>

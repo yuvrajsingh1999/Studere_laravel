@@ -9,6 +9,7 @@ use App\Models\FacultyBuffer;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use GetStream\StreamChat\Client as StreamClient;
 
 class RegisterController extends Controller
 {
@@ -66,7 +67,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {   
+        $client = new StreamClient(
+            getenv("STREAM_API_KEY"),
+            getenv("STREAM_API_SECRET"),
+            null,
+            null,
+            9 // timeout
+        );
+
+        $user = [
+            'id' => preg_replace('/[@\.]/', '_', $data['email']),
+            'name' => $data['name'],
+            'role' => $data['role']
+        ];
+
+        $client->updateUser($user);
+
         if($data['role'] == 'student'){
+
+            
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

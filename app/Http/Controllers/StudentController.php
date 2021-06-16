@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\StudentProfile;
+use App\Models\Department;
+use App\Models\Setting;
+use App\Models\TimeTable;
 use Illuminate\Support\Facades\DB;
 use Session;
 
@@ -117,10 +120,16 @@ class StudentController extends Controller
     public function stuTimeTable()
     {
         $userid = auth()->user()->id;
-        $data = StudentProfile::select('department','sem')->where('user_id',$userid)->first();
-        dd($data);
+        $data = StudentProfile::select('department','sem','class')->where('user_id',$userid)->first();
+        // dd($data);
         $deptid = Department::where('name',$data['department'])->pluck('id');
-        $timetable = TimeTable::where('dept',$deptid)->where('semester',$data['sem'])->first();
+        $timetables = TimeTable::where('dept',$deptid)->where('class',$data['class'])->where('semester',$data['sem'])->first();
+        // dd($timetables);
+        $daysLabel = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+        $institution = (new Setting())->getByKey('institution_name');
+        return view('student.stuShow',compact('timetables','institution','daysLabel'));
+        // $timetable = TimeTable::where('dept',$deptid)->where('semester',$data['sem'])->first();
 
     }
 

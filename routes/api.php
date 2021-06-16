@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/generate-token', 'App\Http\Controllers\ChatController@getnerateToken');
+
+Route::post('/leave-channel', 'ChatController@leaveChannel');
+Route::get('/get-users', 'App\Http\Controllers\ChatController@getUsers');

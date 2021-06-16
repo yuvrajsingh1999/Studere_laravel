@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\FacultyBuffer;
 use App\Models\User;
+use App\Models\Notice;
 use Illuminate\Support\Facades\DB;
 use Session;
 
@@ -28,6 +29,34 @@ class AdminsController extends Controller
 
     public function mailAdmin(){
         return view("admin.mail");
+    }
+    public function notice(){
+        $data = Notice::get();
+        return view("admin.notice-form")->with('data',$data);
+    }
+
+    // activate and deactivate
+    public function deactivate($id){
+        User::where('id',$id)->update(['status' => 0]);
+        return redirect()->back();
+    }
+    public function activate($id){
+    
+        User::where('id',$id)->update(['status' => 1]);
+        return redirect()->back();
+    }
+
+
+    public function facultyList(){
+        $faculty = User::where('role','faculty')->get();
+        // dd($faculty);
+
+        return view("admin.list-fac")->with('faculty',$faculty);
+    }
+    public function studentList(){
+        $student = User::where('role','student')->get();
+        
+        return view("admin.list-stu")->with('students',$student);
     }
 
     /**

@@ -2,7 +2,7 @@
 
 @section('faculty-content')
 
-<div class="container-fluid p-4 p-md-5 pt-5" style="width:1400px;">
+<div class="container-fluid p-4 p-md-5 pt-5" style="width:1250px;">
 @if(count($users) > 0 )
 <div class="container">
     @if(Session::has('message'))
@@ -12,7 +12,7 @@
     @endif
       <div class="row">
   
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3" >
   
   
           <div class="panel panel-default">
@@ -20,8 +20,8 @@
             <div class="panel-heading">
               <h3 class="panel-title"> Profile </h3>
             </div>
-            <div class="panel-body">
-              <div class="row">
+            <div class="panel-body" style="height:550px;">
+              <div class="row" style="margin-right:0px;margin-bottom:0px;">
                 <div class="col-md-3 col-lg-3 " align="left">
                   <img alt="User Pic" src="/profile_image/{{ $user->profile_pic}}" class="img-circle img-responsive" style="
                   border-radius: 50%;height:100px;width:120px;">

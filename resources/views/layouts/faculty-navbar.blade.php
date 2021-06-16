@@ -14,7 +14,10 @@
     <link rel="icon" type="image/png" href="img/brand/studere.png"/>
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
+<script defer src="{{ mix('js/app.js') }}"></script>
 
+<meta name="userId" content="{{ Auth::check() ? Auth::user()->id : '' }}">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -22,6 +25,44 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
 
+    <style>
+        .chat {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+      
+        .chat li {
+          margin-bottom: 10px;
+          padding-bottom: 5px;
+          border-bottom: 1px dotted #B3A9A9;
+        }
+      
+        .chat li .chat-body p {
+          margin: 0;
+          color: #777777;
+        }
+      
+        .panel-body {
+          overflow-y: scroll;
+          height: 350px;
+        }
+      
+        ::-webkit-scrollbar-track {
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+          background-color: #F5F5F5;
+        }
+      
+        ::-webkit-scrollbar {
+          width: 12px;
+          background-color: #F5F5F5;
+        }
+      
+        ::-webkit-scrollbar-thumb {
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+          background-color: #555;
+        }
+      </style>
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
@@ -72,6 +113,12 @@
                               <li>
                                 <a href="/attendence"><span class="fas fa-clipboard-list mr-3"></span> Attendence</a>
                               </li>
+                              <li>
+                                <a href="/facnoticeboard"><span class="fas fa-clipboard-list mr-3"></span> Notice Board</a>
+                              </li>
+                              {{-- <li>
+                                <a href="/chats"><span class="fas fa-clipboard-list mr-3"></span> Discussion Board</a>
+                              </li> --}}
                               <li>
                                 <a href="/support"><span class="fa fa-support mr-3"></span> Support</a>
                               </li>
@@ -140,6 +187,7 @@
     @include('layouts.footer.adminfoot')
 
 
+    <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>

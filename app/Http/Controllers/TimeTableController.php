@@ -96,5 +96,17 @@ class TimeTableController extends Controller
 
     }
 
+    public function studentTimeTable(){
+        $timetables = TimeTable::paginate(1);
+
+        $daysLabel = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+        $institution = (new Setting())->getByKey('institution_name');
+        return view('showall',compact('timetables','institution','daysLabel'));
+
+
+    }
+
+
 
 }

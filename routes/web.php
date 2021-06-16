@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/support-user', function () {
+    return view('support-user');
+});
 Auth::routes();
 
 //Faculty Controllers
@@ -33,6 +36,7 @@ Route::post('/markfacattendence', [App\Http\Controllers\FacultyAttenController::
 Route::get('/uploadmaterial', [App\Http\Controllers\CourseController::class, 'uploadmat']);
 Route::get('upload', 'App\Http\Controllers\MaterialsController@createForm');
 Route::post('upload', [App\Http\Controllers\MaterialsController::class, 'fileUpload'])->name('fileUpload');
+Route::get('/facnoticeboard', [App\Http\Controllers\NoticeController::class, 'facNotice']);
 
 //student Controller
 
@@ -47,14 +51,22 @@ Route::get('/showmaterial', [App\Http\Controllers\CourseController::class, 'show
 Route::get('/download', 'App\Http\Controllers\MaterialsController@showStudent');
 Route::get('/file-download', 'App\Http\Controllers\MaterialsController@fileDownload');
 Route::get('/viewfile/{id}', 'App\Http\Controllers\MaterialsController@fileView');
-
+Route::get('/stunoticeboard', [App\Http\Controllers\NoticeController::class, 'stuNotice']);
+Route::get('/viewnotice/{id}', 'App\Http\Controllers\NoticeController@noticeView');
+Route::get('/notice-download', 'App\Http\Controllers\NoticeController@noticeDownload');
 
 //Admin Controller
 
 Route::get('/admin', [App\Http\Controllers\UserChartController::class, 'index'])->name('admin');
 Route::get('accept/{id}', [App\Http\Controllers\AdminsController::class, 'create'])->name('accept');
+Route::get('/notice', [App\Http\Controllers\AdminsController::class, 'notice']);
+Route::get('activate/{id}', [App\Http\Controllers\AdminsController::class, 'activate']);
+Route::get('deactivate/{id}', [App\Http\Controllers\AdminsController::class, 'deactivate']);
 Route::get('/requestaccount', [App\Http\Controllers\AdminsController::class, 'show'])->name('request');
 Route::get('/mailadmin', [App\Http\Controllers\AdminsController::class, 'mailAdmin']);
+Route::get('/list-stu', [App\Http\Controllers\AdminsController::class, 'studentList']);
+Route::get('/list-fac', [App\Http\Controllers\AdminsController::class, 'facultyList']);
+Route::post('/noticeupload', [App\Http\Controllers\NoticeController::class, 'noticeUpload'])->name('noticeUpload');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -87,8 +99,15 @@ Route::post('settings/store', 'App\Http\Controllers\SettingsController@store')->
 //mails
 Route::post('send-mail', [App\Http\Controllers\ContactController::class, 'sendMail']);
 Route::get('/contact-form', [App\Http\Controllers\ContactController::class, 'showForm']);
+Route::get('/con-for', [App\Http\Controllers\ContactController::class, 'userCon']);
 Route::post('/contact-form', [App\Http\Controllers\ContactController::class, 'storeForm'])->name('contact.save');
 Route::get("email", [App\Http\Controllers\HomeController::class, "composeEmail"])->name("email");
 
 Route::get("email", [App\Http\Controllers\HomeController::class, "composeEmail"])->name("email");
 
+
+// chats
+
+Route::get('/chats', 'App\Http\Controllers\ChatsController@index');
+Route::get('messages', 'App\Http\Controllers\ChatsController@fetchMessages');
+Route::post('messages', 'App\Http\Controllers\ChatsController@sendMessage');

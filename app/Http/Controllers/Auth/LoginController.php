@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Session;
 
 class LoginController extends Controller
 {
@@ -30,6 +31,7 @@ class LoginController extends Controller
 
     protected function redirectTo()
     {
+        if(auth()->user()->status == 1){ 
         if (auth()->user()->role == 'admin') {
             return '/admin';
         }
@@ -42,6 +44,13 @@ class LoginController extends Controller
             
             return '/faculty';
         }
+    }
+    else{
+
+
+        Session::flash('invalid','Students Attendence Marked successfully.');
+        return view('welcome');
+    }
         
     }
 

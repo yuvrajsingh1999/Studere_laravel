@@ -14,6 +14,8 @@
 
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
+<script defer src="{{ mix('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -70,10 +72,13 @@
                                   <a href="/requestaccount"><span class="fa fa-download mr-3 notif"></span> Account Request</a>
                               </li>
                               <li>
-                                  <a href=""><span class="fa fa-download mr-3 notif"></span> Facutly list</a>
+                                  <a href="/list-fac"><span class="fa fa-download mr-3 notif"></span> Facutly list</a>
                               </li>
                               <li>
-                                  <a href=""><span class="fa fa-download mr-3 notif"></span> Student list</a>
+                                  <a href="/list-stu"><span class="fa fa-download mr-3 notif"></span> Student list</a>
+                              </li>
+                              <li>
+                                  <a href="/notice"><span class="fa fa-download mr-3 notif"></span> Notice</a>
                               </li>
                               <li>
                                   <a href="{{ route('courses') }}">Course</a>
@@ -89,7 +94,7 @@
                                 <a href="{{ route('venues') }}">Venues</a>
                             </li>
                             <li>
-                                <a href="{{ route('settings') }}">Settings</a>
+                                <a href="{{ route('settings') }}"> Break Set</a>
                             </li>
                               <li>
                                 <a href="/mailadmin"><span class="fa fa-gift mr-3"></span> Mail</a>

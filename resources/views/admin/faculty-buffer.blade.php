@@ -29,18 +29,52 @@
            <td>Accepted</td>
            @endif
             
-           <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" id="submit" >
+           <td><button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal" data-whatever="{{$fac->id}}">
             Delete
             
-          </button></td>
+          </button>  </td>
+        
           <td>
             <a href="/accept/{{$fac->id}}" ><button type="button" class="btn btn-primary">Accept</button></a></td> 
         </tr>
 
     </tbody>
+
+     <!-- Modal -->
+     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          Are you sure you want to delete user: {{$fac->id}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            <button type="button" class="btn btn-primary">Yes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+     
     @endforeach
     @endif
 </table>
 </div>
+<script>
+  $('#deleteModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-body').text('Are you sure you want to delete user: ' + recipient)
+  // modal.find('.modal-body input').val(recipient)
+})
+  </script>
 
 @endsection

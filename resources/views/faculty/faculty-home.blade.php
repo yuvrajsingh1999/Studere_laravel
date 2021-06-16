@@ -23,6 +23,8 @@
             </div>
         </div>
     </div>
+
+    <stream-chat :autheduser="{{ Auth::user() }}"></stream-chat>
 </div>
 
     
