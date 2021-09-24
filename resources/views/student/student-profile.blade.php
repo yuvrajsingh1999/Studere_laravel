@@ -78,9 +78,9 @@
             </div>
                   
                  <div class="panel-footer">
-                        <span class="float-right">
+                        {{-- <span class="float-right">
                             <a href="/editprofile" type="button" class="btn btn-primary fas fa-edit"> Edit Profile</a>
-                             </span>
+                             </span> --}}
                   </div>
                 @endforeach
           </div>

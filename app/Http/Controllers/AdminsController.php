@@ -149,6 +149,12 @@ class AdminsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $facid= $id;
+        // die($facid);
+        $faculty = FacultyBuffer::where('id',$facid)->delete();
+        return redirect()->back();
+        // $faculties = FacultyBuffer::orderBy('id','asc')->get();
+        
+        // return redirect('/requestaccount')->with('faculties',$faculties);
     }
 }

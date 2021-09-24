@@ -66,6 +66,7 @@ Route::get('/requestaccount', [App\Http\Controllers\AdminsController::class, 'sh
 Route::get('/mailadmin', [App\Http\Controllers\AdminsController::class, 'mailAdmin']);
 Route::get('/list-stu', [App\Http\Controllers\AdminsController::class, 'studentList']);
 Route::get('/list-fac', [App\Http\Controllers\AdminsController::class, 'facultyList']);
+Route::get('/delete_buffer/{id}', [App\Http\Controllers\AdminsController::class, 'destroy']);
 Route::post('/noticeupload', [App\Http\Controllers\NoticeController::class, 'noticeUpload'])->name('noticeUpload');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

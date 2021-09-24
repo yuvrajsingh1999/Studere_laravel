@@ -11,14 +11,14 @@
       <th>Email</th>
       <th>Role</th>
       <th>Status</th>
-      <th>Delete</th>
+      {{-- <th>Delete</th> --}}
       <th>Activate/Deactivate</th>
     </tr>
     @foreach ($faculty as $fac)
     <tbody>
         <tr>
             
-           <td>{{$fac->id}}</td>
+           <td>{{$loop->iteration}}</td>
            <td>{{$fac->name}}</td>
           
            <td>{{$fac->email}}</td>
@@ -28,13 +28,13 @@
            @else 
            <td>Deactivated</td>
            @endif
-            
+{{--             
            <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" id="submit" data-whatever="{{$fac->id}}">
             Delete
             
           </button>
         
-        </td>
+        </td> --}}
         
           <td>
             <a href="/activate/{{$fac->id}}" ><button type="button" class="btn btn-primary mr-2">Activate</button></a>

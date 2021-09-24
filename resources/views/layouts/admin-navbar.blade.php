@@ -90,9 +90,9 @@
                                   <a href="{{ route('timetable.showAll') }}">Time table</a>
                                 </li>
 
-                            <li>
+                            {{-- <li>
                                 <a href="{{ route('venues') }}">Venues</a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a href="{{ route('settings') }}"> Break Set</a>
                             </li>

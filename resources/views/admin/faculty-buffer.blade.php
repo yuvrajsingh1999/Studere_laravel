@@ -18,7 +18,7 @@
     <tbody>
         <tr>
             
-           <td>{{$fac->id}}</td>
+           <td>{{$loop->iteration}}</td>
            <td>{{$fac->name}}</td>
           
            <td>{{$fac->email}}</td>
@@ -29,10 +29,7 @@
            <td>Accepted</td>
            @endif
             
-           <td><button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal" data-whatever="{{$fac->id}}">
-            Delete
-            
-          </button>  </td>
+           <td><a href="/delete_buffer/{{$fac->id}}" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure?')">Delete</a></td>
         
           <td>
             <a href="/accept/{{$fac->id}}" ><button type="button" class="btn btn-primary">Accept</button></a></td> 

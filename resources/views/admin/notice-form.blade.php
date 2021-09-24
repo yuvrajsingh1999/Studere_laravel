@@ -55,8 +55,6 @@
                 <th>Notices</th>
                 <th class="text-center">Posted At</th>
                 
-                <th>Read</th>
-                <th>Download</th>
             </tr>
             @foreach($data as $dat)
                 <tr>
@@ -64,8 +62,6 @@
                     <td><a href="#">{{ $dat->notice }}</a></td>
                     <td class="text-center"><code>{{$dat->created_at}}</code></td>
                     
-                    <td class="text-center"><code><a href="{{url('/viewnotice',$dat->id)}}" class="btn btn-success">Read</a></code></td>
-                    <td><a href="/file-download?name={{$dat->file_name}}" class="btn btn-primary">Download</a></td>
                 </tr>
             @endforeach
         </table>

@@ -30,11 +30,11 @@ class NoticeController extends Controller
 
     public function stuNotice() {
         $data = Notice::get();
-        return view('faculty.notice-show')->with('data',$data);
+        return view('student.notice-show')->with('data',$data);
     }
     public function facNotice() {
         $data = Notice::get();
-        return view('student.notice-show')->with('data',$data);
+        return view('faculty.notice-show')->with('data',$data);
     }
 
     public function noticeView($id){

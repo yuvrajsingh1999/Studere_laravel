@@ -5,7 +5,8 @@
 
 <div class="container-fluid  bg-dark ml-4 mt-4 p-4 p-md-5 pt-5"  style="width:1250px;">
 
-    <div class="container mt-5">
+    <div class="container  mt-5">
+        <h3 class="text-white">Notice</h3>
         @if(count($data) > 0 )
         <table class="table table-responsive table-striped text-white">
             <tr>
@@ -23,7 +24,7 @@
                     <td class="text-center"><code>{{$dat->created_at}}</code></td>
                     
                     <td class="text-center"><code><a href="{{url('/viewnotice',$dat->id)}}" class="btn btn-success">Read</a></code></td>
-                    <td><a href="/notice-download?name={{$dat->file_name}}" class="btn btn-primary">Download</a></td>
+                    <td><a href="/notice-download?name={{$dat->notice}}" class="btn btn-primary">Download</a></td>
                 </tr>
             @endforeach
         </table>

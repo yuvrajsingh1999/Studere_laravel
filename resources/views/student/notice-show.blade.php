@@ -6,6 +6,7 @@
 <div class="container-fluid  bg-dark ml-4 mt-4 p-4 p-md-5 pt-5"  style="width:1250px;">
 
     <div class="container mt-5">
+        <h3 class="text-white">Notice</h3>
         @if(count($data) > 0 )
         <table class="table table-responsive table-striped text-white">
             <tr>

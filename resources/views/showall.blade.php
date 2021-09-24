@@ -55,10 +55,11 @@
                         @endif --}}
 
                     </div>
-                    <div class="d-flex text-dark justify-content-center">
-                        {{ $timetables->links() }}
-                    </div>
                     @endforeach
+
+                    <div class="d-flex text-dark justify-content-center">
+                        {{ $timetables->links('pagination::bootstrap-4') }}
+                    </div>
                 </div>
             </div>
         </div>

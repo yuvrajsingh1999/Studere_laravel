@@ -31,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -67,21 +67,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {   
-        $client = new StreamClient(
-            getenv("STREAM_API_KEY"),
-            getenv("STREAM_API_SECRET"),
-            null,
-            null,
-            9 // timeout
-        );
+        
 
-        $user = [
-            'id' => preg_replace('/[@\.]/', '_', $data['email']),
-            'name' => $data['name'],
-            'role' => $data['role']
-        ];
-
-        $client->updateUser($user);
 
         if($data['role'] == 'student'){
 

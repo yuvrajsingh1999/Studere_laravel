@@ -13,6 +13,7 @@
         "get-stream/stream-chat": "^2.2",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.40",
+        "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "pusher/pusher-php-server": "^7.0"
