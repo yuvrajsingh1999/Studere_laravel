@@ -5,6 +5,13 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+<<<<<<< Updated upstream
+=======
+use Session;
+use Illuminate\Support\Facades\Auth;
+use App\Events\LoginHistory;
+
+>>>>>>> Stashed changes
 
 class LoginController extends Controller
 {
@@ -30,6 +37,11 @@ class LoginController extends Controller
 
     protected function redirectTo()
     {
+<<<<<<< Updated upstream
+=======
+
+        if(auth()->user()->status == 1){ 
+>>>>>>> Stashed changes
         if (auth()->user()->role == 'admin') {
             return '/admin';
         }
@@ -53,5 +65,11 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    protected function authenticated() {
+
+        $user = Auth::user();
+
+        event(new LoginHistory($user));
     }
 }
